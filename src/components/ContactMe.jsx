@@ -30,7 +30,7 @@ const HireMe = () => {
     emailjs
       .send(serviceId, templateId, formData, userId)
       .then(
-        (response) => {
+        () => {
           toast({
             title: "Success!",
             description: "Message sent successfully. I'll get back to you soon.",

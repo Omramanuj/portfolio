@@ -69,7 +69,7 @@ const Timeline = () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [experienceData.length]);
 
   return (
     <Card className="min-h-screen py-16 bg-zinc-950 flex items-center justify-center">

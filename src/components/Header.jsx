@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "./Nav";
-import { Button } from "@/components/ui/button.tsx";
 import MobileNav from "@/components/MobileNav";
 
 const Header = () => {

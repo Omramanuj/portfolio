@@ -14,7 +14,7 @@ export default function Home() {
           <div className='text-center order-2 xl:order-none xl:text-left'>
           <span className='text-xl'>gopher · next · mern </span>
 
-            <h1 className="h1"><span className='h2'>Hello I'm</span>  <br /><span className='text-accent'><Name/></span></h1>
+            <h1 className="h1"><span className='h2'>Hello I&apos;m</span>  <br /><span className='text-accent'><Name/></span></h1>
             <p className='max-w-[500px] mt-4 mb-11 text-white/80'>I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies</p>
             <div className='flex flex-col xl:flex-row items-center gap-8'>
               <CV/>
