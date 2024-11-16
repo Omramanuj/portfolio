@@ -35,7 +35,7 @@ const Timeline = () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.2, // Reduced threshold for earlier triggering
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -63,7 +63,7 @@ const Timeline = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     
     return () => {
       observer.disconnect();
@@ -72,17 +72,16 @@ const Timeline = () => {
   }, [experienceData.length]);
 
   return (
-    <Card className="min-h-screen py-16 bg-zinc-950 flex items-center justify-center">
+    <Card className="min-h-screen py-8 md:py-16 bg-zinc-950 flex items-center justify-center">
       <div ref={containerRef} className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 text-center">
           Professional Experience
         </h2>
         <div className="relative">
           {/* Background line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-zinc-800">
-            {/* Animated progress line */}
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-zinc-800">
             <div 
-              className="absolute top-0 left-0 w-full bg-emerald-400 transition-all duration-150" // Faster duration
+              className="absolute top-0 left-0 w-full bg-emerald-400 transition-all duration-150"
               style={{ 
                 height: `${scrollProgress * 100}%`,
                 boxShadow: '0 0 10px #4ade80, 0 0 20px #4ade80'
@@ -95,14 +94,32 @@ const Timeline = () => {
               key={item.id}
               ref={(el) => (timelineRefs.current[index] = el)}
               data-id={item.id}
-              className={`flex items-center justify-between mb-16 w-full ${
-                index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              }`}
+              className="flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-16 w-full relative"
             >
+              {/* Timeline dot */}
+              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 mt-1 md:mt-0">
+                <div
+                  className={`w-8 h-8 rounded-full border-4 flex items-center justify-center transition-all duration-500 bg-zinc-950 ${
+                    visibleItems.includes(item.id)
+                      ? "border-emerald-400 shadow-[0_0_10px_#4ade80]"
+                      : "border-zinc-700"
+                  }`}
+                >
+                  <Briefcase
+                    className={`w-4 h-4 ${
+                      visibleItems.includes(item.id)
+                        ? "text-emerald-400"
+                        : "text-zinc-400"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
               <div
-                className={`w-5/12 ${
-                  index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"
-                }`}
+                className={`pl-20 md:pl-0 md:w-5/12 ${
+                  index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"
+                } ${index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}
               >
                 <div
                   className={`transition-all duration-700 transform ${
@@ -118,7 +135,7 @@ const Timeline = () => {
                   <p className="text-zinc-400 mb-2">{item.duration}</p>
                   <p className="text-white/80 mb-4">{item.description}</p>
                   <div className={`flex flex-wrap gap-2 ${
-                    index % 2 === 0 ? "justify-end" : "justify-start"
+                    index % 2 === 0 ? "md:justify-end" : "md:justify-start"
                   }`}>
                     {item.technologies.map((tech, techIndex) => (
                       <span
@@ -131,24 +148,6 @@ const Timeline = () => {
                   </div>
                 </div>
               </div>
-              <div className="relative flex items-center justify-center">
-                <div
-                  className={`w-8 h-8 rounded-full border-4 flex items-center justify-center transition-all duration-500 ${
-                    visibleItems.includes(item.id)
-                      ? "border-emerald-400 shadow-[0_0_10px_#4ade80]"
-                      : "border-zinc-700"
-                  }`}
-                >
-                  <Briefcase
-                    className={`w-4 h-4 ${
-                      visibleItems.includes(item.id)
-                        ? "text-emerald-400"
-                        : "text-zinc-400"
-                    }`}
-                  />
-                </div>
-              </div>
-              <div className="w-5/12" />
             </div>
           ))}
         </div>

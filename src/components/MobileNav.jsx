@@ -43,10 +43,10 @@ const MobileNav = () => {
   const handleNavClick = (sectionId) => {
     scrollToSection(sectionId);
     // Find and click the SheetClose trigger to close the sheet
-    const closeButton = document.querySelector('[data-sheet-close]');
-    if (closeButton) {
-      closeButton.click();
-    }
+    // const closeButton = document.querySelector('[data-sheet-close]');
+    // if (closeButton) {
+    //   closeButton.click();
+    // }
   };
 
   return (
@@ -86,12 +86,12 @@ const MobileNav = () => {
           <div className="flex gap-4 justify-center">
             <Button variant="outline" onClick={() => {
               // Add your resume download/view logic here
-              window.open('your-resume-url', '_blank');
+              window.open('https://drive.google.com/uc?export=download&id=10Wwr9OGLhu-k10K2yt-dEoc70qOLj9F4', '_blank');
             }}>
               resume
             </Button>
             <Button variant="outline" onClick={() => {
-              window.open('your-github-url', '_blank');
+              window.open('https://github.com/Omramanuj', '_blank');
             }}>
               github
             </Button>

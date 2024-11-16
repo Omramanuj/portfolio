@@ -55,9 +55,9 @@ const HireMe = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between bg-[#1c1c22] p-6">
+    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between  bg-[#1c1c22] p-6">
       {/* Left Section */}
-      <div className="lg:w-1/2 text-white flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0">
+      <div className="lg:w-1/2 text-white flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0 ">
         <h1 className="text-4xl font-bold mb-4">
           <span className="text-[#00ff99]">Hire Me</span> to build amazing things.
         </h1>

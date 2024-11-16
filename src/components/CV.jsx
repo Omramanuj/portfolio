@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button.tsx"
 const CV = () => {
     const {toast}=useToast();
   return (
-    <div className="'h-full w-full">
+    <div className="'h-full w-full flex justify-center">
                 <a
                 href="https://drive.google.com/uc?export=download&id=10Wwr9OGLhu-k10K2yt-dEoc70qOLj9F4"
                 download
