@@ -15,7 +15,7 @@ export default function Home() {
           <span className='text-xl'>gopher · next · mern </span>
 
             <h1 className="h1"><span className='h2'>Hello I&apos;m</span>  <br /><span className='text-accent'><Name/></span></h1>
-            <p className='max-w-[500px] mt-4 mb-11 text-white/80'>I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies</p>
+            <p className='max-w-[500px] mt-4 mb-11 text-white/80'>I have fall-in love with programming and crafting creative solutions with <span className='text-accent'>#Go</span> and <span className='text-accent'>#Next</span></p>
             <div className='flex flex-col xl:flex-row max-w-[500px] gap-8'>
               <CV/>
               <div className='mb-8 xl:mb-0'>

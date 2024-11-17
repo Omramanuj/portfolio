@@ -8,9 +8,9 @@ const Name = () => {
         cursor={true}
         sequence={[
           100,
-          "Om Ramanuj.",
+          "Om Ramanuj",
           900,
-          "Software Developer.",
+          "Software Developer",
           900,
           "Om Ramanuj",
          
