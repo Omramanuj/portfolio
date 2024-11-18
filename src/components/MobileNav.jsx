@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
 import { Button } from "./ui/button";
@@ -30,7 +30,7 @@ const MobileNav = () => {
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    console.log(eleme)
+    console.log(element)
     if (element) {
       const offsetTop = element.offsetTop;
       window.scrollTo({
@@ -46,31 +46,31 @@ const MobileNav = () => {
     setIsOpen(false); // Close the sheet after navigation
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = Links.map(link => link.id);
-      const scrollPosition = window.scrollY + 100;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = Links.map(link => link.id);
+  //     const scrollPosition = window.scrollY + 100;
 
-      sections.forEach((sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
+  //     sections.forEach((sectionId) => {
+  //       const section = document.getElementById(sectionId);
+  //       if (section) {
+  //         const sectionTop = section.offsetTop;
+  //         const sectionHeight = section.clientHeight;
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(sectionId);
-          }
-        }
-      });
-    };
+  //         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+  //           setActiveSection(sectionId);
+  //         }
+  //       }
+  //     });
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll(); // Initial check
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   console.log(activeSection)
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
