@@ -5,8 +5,21 @@ import Socials from '@/components/Socials';
 import Photo from '@/components/Photo';
 import Name from '@/components/Name';
 import CV from '@/components/CV';
+
+export const metadata = {
+  title: 'About Om Ramanuj',
+  description: 'Learn more about Om Ramanuj and his journey in software development.',
+  openGraph: {
+    title: 'About Om Ramanuj',
+    description: 'Discover Om Ramanuj’s story and achievements.',
+    url: 'https://omramanuj.vercel.app/about',
+  },
+};
+
+
 export default function Home() {
  
+
   return (
     <section className='h-full' >
       <div className='container mx-auto h-full'>

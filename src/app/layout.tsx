@@ -1,11 +1,34 @@
-import type { Metadata } from "next";
 import {JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Toaster } from "@/components/ui/toaster";
-export const metadata: Metadata = {
-  title: "om_ramanuj",
-  description: "portfolio website of om",
+
+export const metadata = {
+  title: {
+    default: 'Om Ramanuj - Developer Portfolio',
+    template: '%s | Om Ramanuj',
+  },
+  description: 'Portfolio of Om Ramanuj, showcasing projects and experience.',
+  openGraph: {
+    title: 'Om Ramanuj Portfolio',
+    description: 'Showcasing Om Ramanuj’s projects and skills.',
+    url: 'https://omramanuj.vercel.app',
+    siteName: 'Om Ramanuj Portfolio',
+    images: [
+      {
+        url: '/images/profile.jpg',
+        width: 800,
+        height: 600,
+        alt: 'Om Ramanuj',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@OmRamanuj',
+  },
 };
 
 const jetbrainsMono = JetBrains_Mono({
