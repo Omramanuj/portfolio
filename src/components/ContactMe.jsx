@@ -58,7 +58,7 @@ const HireMe = () => {
           <span className="text-[#00ff99]">Hire Me</span> to build amazing things.
         </h1>
         <p className="text-gray-400 mb-8 text-center lg:text-left">
-          Looking for a skilled developer? I'm here to help bring your ideas to life. Get in touch today!
+          Looking for a skilled developer? I`&apos;`m here to help bring your ideas to life. Get in touch today!
         </p>
         {/* Social Links */}
         <div className="flex gap-6">
@@ -94,7 +94,7 @@ const HireMe = () => {
       <div className="lg:w-1/2 bg-[#1c1c22] text-white rounded-lg shadow-lg p-6 border border-[#00ff99]">
         <h2 className="text-2xl font-bold text-center mb-4">Hire Me</h2>
         <p className="text-sm text-gray-400 text-center mb-6">
-          Fill out the form below, and I'll get back to you as soon as possible.
+          Fill out the form below, and I`&apos;`ll get back to you as soon as possible.
         </p>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
