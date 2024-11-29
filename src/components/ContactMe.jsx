@@ -1,16 +1,14 @@
-"use client";
-
+"use client"
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { Mail, Linkedin, Twitter } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const HireMe = () => {
-  const { toast } = useToast();
-
   const [formData, setFormData] = useState({
     name: "",
-    description: "",
+    message: "",
     email: "",
     contact: "",
   });
@@ -20,49 +18,47 @@ const HireMe = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const serviceId = "service_fgii98t";
-    const templateId = "template_gglr4vy";
-    const userId = "IWn_febdRuqrpc__Z";
-
-    emailjs
-      .send(serviceId, templateId, formData, userId)
-      .then(
-        () => {
-          toast({
-            title: "Success!",
-            description: "Message sent successfully. I'll get back to you soon.",
-            variant: "success",
-          });
-          setFormData({
-            name: "",
-            description: "",
-            email: "",
-            contact: "",
-          });
-        },
-        (error) => {
-          console.error("Failed to send email:", error);
-          toast({
-            title: "Error",
-            description: "Failed to send message. Please try again later.",
-            variant: "destructive",
-          });
-        }
-      );
+  
+    const serviceID = "service_fgii98t";
+    const templateID = "template_gglr4vy";
+    const userID = "IWn_febdRuqrpc__Z";
+  
+    try {
+      const emailParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message + " cotact:" + formData.contact,
+        
+      };
+  
+      const response = await emailjs.send(serviceID, templateID, emailParams, userID);
+  
+      if (response.status === 200) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        setFormData({
+          name: "",
+          message: "",
+          email: "",
+          contact: "",
+        });
+      }
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      toast.error("Failed to send message. Please try again later.");
+    }
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between  bg-[#1c1c22] p-6">
+    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between bg-[#1c1c22] p-6">
       {/* Left Section */}
-      <div className="lg:w-1/2 text-white flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0 ">
+      <div className="lg:w-1/2 text-white flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0">
         <h1 className="text-4xl font-bold mb-4">
           <span className="text-[#00ff99]">Hire Me</span> to build amazing things.
         </h1>
         <p className="text-gray-400 mb-8 text-center lg:text-left">
-          Looking for a skilled developer? I’m here to help bring your ideas to life. Get in touch today!
+          Looking for a skilled developer? I'm here to help bring your ideas to life. Get in touch today!
         </p>
         {/* Social Links */}
         <div className="flex gap-6">
@@ -98,7 +94,7 @@ const HireMe = () => {
       <div className="lg:w-1/2 bg-[#1c1c22] text-white rounded-lg shadow-lg p-6 border border-[#00ff99]">
         <h2 className="text-2xl font-bold text-center mb-4">Hire Me</h2>
         <p className="text-sm text-gray-400 text-center mb-6">
-          Fill out the form below, and I’ll get back to you as soon as possible.
+          Fill out the form below, and I'll get back to you as soon as possible.
         </p>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -117,16 +113,13 @@ const HireMe = () => {
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="description"
-              className="block text-sm font-medium mb-1"
-            >
-              Description
+            <label htmlFor="message" className="block text-sm font-medium mb-1">
+              Message
             </label>
             <textarea
-              id="description"
-              name="description"
-              value={formData.description}
+              id="message"
+              name="message"
+              value={formData.message}
               onChange={handleChange}
               className="w-full px-4 py-2 rounded bg-[#1c1c22] text-white border border-gray-600 focus:outline-none focus:border-[#00ff99] transition"
               placeholder="Tell me about your requirements"
@@ -172,6 +165,7 @@ const HireMe = () => {
           </button>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };
