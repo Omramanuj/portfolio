@@ -8,15 +8,18 @@ export const metadata = {
     default: 'Om Ramanuj - Developer Portfolio',
     template: '%s | Om Ramanuj',
   },
+  icons: {
+    icon: "/worker.png",
+  },
   description: 'Portfolio of Om Ramanuj, showcasing projects and experience.',
   openGraph: {
     title: 'Om Ramanuj Portfolio',
-    description: 'Showcasing Om Ramanuj’s projects and skills.',
+    description: 'Showcasing my professional experience projects and skills.',
     url: 'https://omramanuj.vercel.app',
     siteName: 'Om Ramanuj Portfolio',
     images: [
       {
-        url: '/images/profile.jpg',
+        url: 'https://omramanuj.vercel.app/worker.png',
         width: 800,
         height: 600,
         alt: 'Om Ramanuj',
@@ -44,6 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <body
         className={jetbrainsMono.variable}
       >
