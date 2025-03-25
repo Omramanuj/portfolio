@@ -11,7 +11,17 @@ const ProjectCard = () => {
 
   const projects = [
     {
-      id: 1,
+      id:1,
+      title:"Spark-Grid",
+      description:
+      "Spark-Grid uses AI and blockchain to predict energy demand and optimize distribution via Ethereum-based carbon credit trading with an interactive dashboard.",
+      image:"/assets/spark-grid.png",
+      technologies:["Machine-Learning Model","EthereumJS","Solidity","React.js","Node.js","MongoDB"],
+      github:"https://github.com/Omramanuj/SparkGrid",
+      live:"https://sparkgrid.vercel.app/",
+    },
+    {
+      id: 2,
       title: "Proffrr",
       description:
         "An AI bot helping customers select the best tyre for their requirements, built with FastAPI, React.js, and ChatGPT agent.",
